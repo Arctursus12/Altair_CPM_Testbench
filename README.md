@@ -164,10 +164,10 @@ strings supercalc.dsk | grep "\.COM$"
 This will show you the executable files on the disk image.
 
 ## Misc. Notes
-- The simulator runs at historically accurate speeds by default (that is, abysmally slow! I could not stomach sitting through the loading times even once past the first time!)
-- All disk images are 330KB (standard 8" single-density floppy format)
-- CP/M is case-insensitive (commands can be typed in upper or lower case, which is a big win over modern Windows, for one)
-- The system disk (A.dsk) should remain mounted on DSK0 at all times (unless you don't want to have a bootable system, of course)
+- The simulator runs at historically accurate speeds by default (that is, abysmally slow! I could not stomach sitting through the loading times even once past the first time!). You can adjust this by inserting `set throttle 50%` (for it to crank with 50% of your CPU power) or `set nothrottle` (not recommended) into the `cpm` file, onto the second line.
+- All disk images are 330KB (standard 8" single-density floppy format).
+- CP/M is case-insensitive (commands can be typed in upper or lower case, which is a big win over modern Windows, for one).
+- The system disk (A.dsk) should remain mounted on DSK0 at all times (unless you don't want to have a bootable system, of course).
 
 ## Application Usage Guide
 Note! This below part is written entirely by Claude Code. <br>
