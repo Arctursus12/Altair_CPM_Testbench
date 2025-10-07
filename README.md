@@ -490,10 +490,11 @@ sim> ATTACH -R DSK1 wordstar.dsk
 ```
 The `-R` flag attaches the disk as read-only.
 
-## End of README.
+## End of README.md
 Congrats. You scrolled through a whole lot of CS student yapping and Claude Code slopumentation. Hope you're proud of yourself.
 
 ## Additional Resources
+I lied, here's more random stuff you may find useful.
 - **SIMH Documentation**: https://simh.trailing-edge.com/
 - **CP/M 2.2 Manual**: Search online for "CP/M 2.2 User Guide"
 - **WordStar Command Reference**: Search for "WordStar Quick Reference Card"
