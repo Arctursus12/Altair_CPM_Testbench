@@ -92,13 +92,15 @@ While the simulator is running, you can press **Ctrl+E** to pause execution and 
    sim> CONT
    ```
    (or just `C` for short)
+   Note: Be warned. Get a coffee. Or a meal. Or a wife and kids, because you'll have time for that too, while it's recombobulating itself. <br>
+   If, however, you have better things to do in life than go and get a life, hit Ctrl-C to interrupt the "realism" process and get to actually use the system.
 6. **Access the new drive in CP/M**
    - At the `A>` prompt, type:
    ```
    A> B:
    ```
-   - The prompt changes to `B>`, and you're now on drive B:
-   - Type `DIR` to see files on the disk:
+   - The prompt changes to `B>`, and you're now on drive B.
+   - Type `DIR` to see files on the disk.
    ```
    B> DIR
    ```
@@ -139,7 +141,7 @@ A> B:
 B> DIR
 B> WS
 
-[WordStar opens - create your document]
+[WordStar opens (eventually) - create your document]
 
 [Press Ctrl+K X to exit WordStar]
 
@@ -152,7 +154,7 @@ $
 ```
 
 ## Checking Drives Without Booting
-This is vital for if your teacher/professor/instructor/idle curiosity leads you to downloading a peculiar folder full of `.DSK` files and you have not the slightest clue what they contain. <br>
+This is vital for if your teacher/professor/instructor/idle curiosity leads you to downloading a peculiar folder full of `.DSK` files and you have not the slightest clue what they contain. Not pointing any fingers. <br>
 To see what's on each disk without booting, you can use the `strings` command on your host system:
 
 ```bash
@@ -162,7 +164,7 @@ strings supercalc.dsk | grep "\.COM$"
 This will show you the executable files on the disk image.
 
 ## Misc. Notes
-- The simulator runs at historically accurate speeds by default (that is, at times abysmally slow!)
+- The simulator runs at historically accurate speeds by default (that is, abysmally slow! I could not stomach sitting through the loading times even once past the first time!)
 - All disk images are 330KB (standard 8" single-density floppy format)
 - CP/M is case-insensitive (commands can be typed in upper or lower case, which is a big win over modern Windows, for one)
 - The system disk (A.dsk) should remain mounted on DSK0 at all times (unless you don't want to have a bootable system, of course)
