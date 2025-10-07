@@ -1,6 +1,7 @@
 # Arc's Altair8800 CP/M Testbench
 A little repository housing a CP/M testbench I needed to use for one of my courses. <br>
 Runs perfectly on Mac, Unix terminal commands listed, other don't whinge at me if it doesn't work elsewhere. <br>
+All the credit for the simulator goes to the wonderful folks that create and maintain [SIMH](https://github.com/simh/simh). <br>
 
 ## System Details
 ### Getting the difference: simulator capabilities vs CP/M capabilities
