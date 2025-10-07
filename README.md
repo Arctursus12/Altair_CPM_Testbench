@@ -1,6 +1,6 @@
 # Arc's Altair8800 CP/M Testbench
 A little repository housing a CP/M testbench I needed to use for one of my courses. <br>
-Runs perfectly on Mac, Unix terminal commands listed, other don't whinge at me if it doesn't work elsewhere. <br>
+Runs perfectly on Mac, Unix terminal commands listed, other OS executables provided. Adjust commands accordingly, and don't whinge at me if it doesn't work elsewhere. <br>
 All the credit for the simulator goes to the wonderful folks that create and maintain [SIMH](https://github.com/simh/simh). <br>
 
 ## System Details
@@ -43,7 +43,7 @@ The (DISKXX) filenames may not mean anything to you, [but they sure do for a cer
 ### Initial boot
 From whatever you name this directory (default `Altair_CPM_Testbench`):
 ```bash
-./altair8800 cpm
+./altair8800mac cpm
 ```
 This will:
 1. Load the 8080 CPU emulation, using the "cpm" config
@@ -127,7 +127,7 @@ These work from any drive prompt (A>, B>, etc.):
 Here's a complete example of starting the simulator and running WordStar:
 
 ```bash
-$ ./altair8800 cpm
+$ ./altair8800mac cpm
 Altair 8800 (Z80) simulator Open SIMH V4.1-0 Current
 
 59K CP/M
