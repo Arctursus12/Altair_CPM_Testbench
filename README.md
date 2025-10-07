@@ -91,9 +91,9 @@ While the simulator is running, you can press **Ctrl+E** to pause execution and 
    ```
    sim> CONT
    ```
-   (or just `C` for short)
+   (or just `C` for short) <br>
    Note: Be warned. Get a coffee. Or a meal. Or a wife and kids, because you'll have time for that too, while it's recombobulating itself. <br>
-   If, however, you have better things to do in life than go and get a life, hit Ctrl-C to interrupt the "realism" process and get to actually use the system.
+   If, however, you have better things to do in life than go and get a life, hit **Ctrl-C** to interrupt the "realism" process and get to actually use the system.
 6. **Access the new drive in CP/M**
    - At the `A>` prompt, type:
    ```
