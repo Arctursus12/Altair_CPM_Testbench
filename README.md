@@ -9,11 +9,13 @@ The **SIMH Altair 8800 simulator** (the `altair8800` executable) is extremely fl
 - Can hot-swap disk images while running (more on this fascinating bit later)
 - Emulates an 8080 CPU with up to 8978KB per disk unit
 - Provides a full hardware environment for running "vintage" operating systems (which serves no direct, functional purpose – have fun with it!)
+
 The **CP/M 2.2 operating system** running *inside* the simulator has stricter limitations:
 - Supports only **4 logical drives**: **A:, B:, C:, D:**
 - A: is **always** the system/boot drive, that is a core feature of CP/M as a system
 - Each drive can be mounted/unmounted, but CP/M only sees 4 at a time, this was due to how the software was written (to fit with the hardware it was for)
 - Total memory: **59K-63K** usable RAM (not the full capacity of the simulated hardware, but well over what was realistically needed by the system)
+
 Think of it this way: <br>
 The **simulator** is like having 16 physical floppy disk drives on your desk. <br>
 **CP/M** is like having only 4 drive letters available in your operating system. <br>
