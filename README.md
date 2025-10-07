@@ -36,6 +36,8 @@ This workspace (currently) contains the following disk images:
 | `devtools.dsk` | Development Tools: M80, L80, MAC, ASM, ED (DISK13) | 330KB |
 | `tsbasic.dsk` | Altair Time-Sharing BASIC V1.1 (DISK09) | 330KB |
 
+The (DISKXX) filenames may not mean anything to you, [but they sure do for a certain someone.](https://codeberg.org/jelkner)
+
 ## Starting the Simulator
 ### Initial boot
 From whatever you name this directory (default `Altair_CPM_Testbench`):
