@@ -102,6 +102,69 @@ While the simulator is running, you can press **Ctrl+E** to pause execution and 
    ```
 Did you get all that? Great, because I had Claude Code babysit me for 20 minutes as I tried to process how all of that works, and cannot help you any more than this documentation will. Good luck soldier.
 
+## Common CP/M Commands
+These work from any drive prompt (A>, B>, etc.):
+
+| Command | Description | Example |
+|---------|-------------|---------|
+| `DIR` | List files on current drive | `DIR` |
+| `DIR B:` | List files on drive B: | `DIR B:` |
+| `A:` | Switch to drive A: | `A:` |
+| `TYPE FILE.TXT` | Display text file contents | `TYPE README.TXT` |
+| `ERA FILE.TXT` | Erase (delete) a file | `ERA TEMP.TXT` |
+| `REN NEW.TXT=OLD.TXT` | Rename a file | `REN LETTER2.TXT=LETTER.TXT` |
+| `PIP` | File copy utility | `PIP B:=A:FILE.TXT` |
+| `STAT` | Show disk statistics | `STAT` |
+
+**Warm boot**: Press **Ctrl+C** at any CP/M prompt to reload the operating system (useful after disk swaps).
+
+## Quick Start Example Session
+Here's a complete example of starting the simulator and running WordStar:
+
+```bash
+$ ./altair8800 cpm
+Altair 8800 (Z80) simulator Open SIMH V4.1-0 Current
+
+59K CP/M
+Version 2.2mits (07/28/80)
+
+A> [Press Ctrl+E]
+
+sim> ATTACH DSK1 wordstar.dsk
+sim> CONT
+
+A> B:
+B> DIR
+B> WS
+
+[WordStar opens - create your document]
+
+[Press Ctrl+K X to exit WordStar]
+
+B> A:
+A> [Press Ctrl+E]
+
+sim> QUIT
+
+$
+```
+
+## Checking Drives Without Booting
+This is vital for if your teacher/professor/instructor/idle curiosity leads you to downloading a peculiar folder full of `.DSK` files and you have not the slightest clue what they contain. <br>
+To see what's on each disk without booting, you can use the `strings` command on your host system:
+
+```bash
+strings supercalc.dsk | grep "\.COM$"
+```
+
+This will show you the executable files on the disk image.
+
+## Misc. Notes
+- The simulator runs at historically accurate speeds by default (that is, at times abysmally slow!)
+- All disk images are 330KB (standard 8" single-density floppy format)
+- CP/M is case-insensitive (commands can be typed in upper or lower case, which is a big win over modern Windows, for one)
+- The system disk (A.dsk) should remain mounted on DSK0 at all times (unless you don't want to have a bootable system, of course)
+
 ## Application Usage Guide
 Note! This below part is written entirely by Claude Code. <br>
 The extent of terminal-based software I use are `btop` and `nano`, and while I have gone through and tried most of these, I will highlight that the ability to use SuperCalc II was a skill that would singlehandedly get you employed. <br>
@@ -373,29 +436,8 @@ I am not seeking employment in that long-gone field at this time, and as such, w
 5. **Exit**:
    - Type `BYE` or `SYSTEM`
 
----
-
-## Common CP/M Commands
-
-These work from any drive prompt (A>, B>, etc.):
-
-| Command | Description | Example |
-|---------|-------------|---------|
-| `DIR` | List files on current drive | `DIR` |
-| `DIR B:` | List files on drive B: | `DIR B:` |
-| `A:` | Switch to drive A: | `A:` |
-| `TYPE FILE.TXT` | Display text file contents | `TYPE README.TXT` |
-| `ERA FILE.TXT` | Erase (delete) a file | `ERA TEMP.TXT` |
-| `REN NEW.TXT=OLD.TXT` | Rename a file | `REN LETTER2.TXT=LETTER.TXT` |
-| `PIP` | File copy utility | `PIP B:=A:FILE.TXT` |
-| `STAT` | Show disk statistics | `STAT` |
-
-**Warm boot**: Press **Ctrl+C** at any CP/M prompt to reload the operating system (useful after disk swaps).
-
----
-
 ## Tips and Troubleshooting
-
+Also written by Claude Code! I personally had no issues, so best of luck!
 ### Swapping Disks Mid-Session
 
 **Example workflow** - switching from WordStar to Zork:
@@ -448,71 +490,11 @@ sim> ATTACH -R DSK1 wordstar.dsk
 ```
 The `-R` flag attaches the disk as read-only.
 
----
-
-## Quick Start Example Session
-
-Here's a complete example of starting the simulator and running WordStar:
-
-```bash
-$ ./altair8800 cpm
-Altair 8800 (Z80) simulator Open SIMH V4.1-0 Current
-
-59K CP/M
-Version 2.2mits (07/28/80)
-
-A> [Press Ctrl+E]
-
-sim> ATTACH DSK1 wordstar.dsk
-sim> CONT
-
-A> B:
-B> DIR
-B> WS
-
-[WordStar opens - create your document]
-
-[Press Ctrl+K X to exit WordStar]
-
-B> A:
-A> [Press Ctrl+E]
-
-sim> QUIT
-
-$
-```
-
----
-
-## File Listing Reference
-
-To see what's on each disk without booting, you can use the `strings` command on your host system:
-
-```bash
-strings supercalc.dsk | grep "\.COM$"
-```
-
-This will show you the executable files on the disk image.
-
----
+## End of README.
+Congrats. You scrolled through a whole lot of CS student yapping and Claude Code slopumentation. Hope you're proud of yourself.
 
 ## Additional Resources
-
 - **SIMH Documentation**: https://simh.trailing-edge.com/
 - **CP/M 2.2 Manual**: Search online for "CP/M 2.2 User Guide"
 - **WordStar Command Reference**: Search for "WordStar Quick Reference Card"
 - **Zork Hints**: Use in-game `HELP` command or search online for walkthroughs
-
----
-
-## Notes
-
-- The simulator runs at historically accurate speeds by default
-- All disk images are 330KB (standard 8" single-density floppy format)
-- CP/M is case-insensitive (commands can be typed in upper or lower case)
-- The system disk (A.dsk) should remain mounted on DSK0 at all times
-- You can mount multiple disks simultaneously on DSK1-DSK3 (B: through D:)
-
----
-
-**Enjoy exploring vintage computing!**
