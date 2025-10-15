@@ -29,12 +29,12 @@ This means that, while you can't access 16 drives simultaneously, what you CAN d
 This workspace (currently) contains the following disk images:
 | Filename | Contents | Size |
 |----------|----------|------|
-| `A.dsk` | CP/M 2.2 System Disk (DISK01) | 330KB |
-| `supercalc.dsk` | SuperCalc II Spreadsheet (DISK06) | 330KB |
-| `zork.dsk` | Zork I Text Adventure Game (DISK08) | 330KB |
-| `games.dsk` | Collection of misc. CP/M Games (DISK05) | 330KB |
-| `devtools.dsk` | Development Tools: M80, L80, MAC, ASM, ED (DISK13) | 330KB |
-| `tsbasic.dsk` | Altair Time-Sharing BASIC V1.1 (DISK09) | 330KB |
+| `A.dsk` | CP/M 2.2 System Disk (DISK01) | 338KB |
+| `supercalc.dsk` | SuperCalc II Spreadsheet (DISK06) | 338KB |
+| `zork.dsk` | Zork I Text Adventure Game (DISK08) | 338KB |
+| `games.dsk` | Collection of misc. CP/M Games (DISK05) | 338KB |
+| `devtools.dsk` | Development Tools: M80, L80, MAC, ASM, ED (DISK13) | 338KB |
+| `editor.dsk` | Contains whatever editor I can get to work | 338KB |
 
 The (DISKXX) filenames may not mean anything to you, [but they sure do for a certain someone.](https://codeberg.org/jelkner)
 
@@ -171,58 +171,11 @@ This will show you the executable files on the disk image.
 - The system disk (A.dsk) should remain mounted on DSK0 at all times (unless you don't want to have a bootable system, of course).
 
 ## Application Usage Guide
-Note! This below part is written entirely by Claude Code. <br>
+Note! This below part is written entirely by Claude Code. Its reliability is prone to being null. <br>
 The extent of terminal-based software I use are `btop` and `nano`, and while I have gone through and tried most of these, I will highlight that the ability to use SuperCalc II was a skill that would singlehandedly get you employed. <br>
 I am not seeking employment in that long-gone field at this time, and as such, will not be learning every tiny detail of how to use these.
 
-### 1. te Text Editor (RECOMMENDED for text editing)
-
-**What it is**: A modern, small text editor (v1.73) designed for CP/M that actually works with modern terminal emulators! Unlike WordStar, te has ANSI terminal support.
-
-**How to use**:
-
-1. **Mount the disk**:
-   ```
-   [Press Ctrl+E]
-   sim> ATTACH DSK1 te.dsk
-   sim> CONT
-   ```
-
-2. **Switch to drive B: and check contents**:
-   ```
-   A> B:
-   B> DIR
-   ```
-   You'll see: `TE_ANSI.COM`, `TE_WS100.COM`, `TE_MUR.COM`, and `TECF.COM`
-
-3. **Run te (use TE_ANSI for macOS Terminal/iTerm2)**:
-   ```
-   B> TE_ANSI
-   ```
-   Or to edit a specific file:
-   ```
-   B> TE_ANSI TODO.TXT
-   ```
-
-4. **Key commands**:
-   - **ESC** - Opens the menu (New, Open, Save, Help, About, eXit)
-   - **Arrow keys** - Move cursor
-   - **Type normally** - It just works!
-   - In the menu, press the uppercase letter to select (N=New, O=Open, S=Save, etc.)
-
-5. **Available versions**:
-   - `TE_ANSI.COM` - For ANSI terminals (macOS Terminal, iTerm2) - USE THIS ONE
-   - `TE_WS100.COM` - VT100 with WordStar-style keys
-   - `TE_MUR.COM` - Alternative VT100/ANSI version
-
-6. **Exit**:
-   - Press ESC, then X for eXit
-
-**Why use te?**: Unlike other CP/M text editors, te actually displays correctly on modern terminals without garbled output!
-
----
-
-### 2. SuperCalc II (Spreadsheet)
+### 1. SuperCalc II (Spreadsheet)
 
 **What it is**: A powerful spreadsheet program, similar to VisiCalc or early Excel.
 
@@ -259,7 +212,7 @@ I am not seeking employment in that long-gone field at this time, and as such, w
 
 ---
 
-### 3. Zork I (Text Adventure Game)
+### 2. Zork I (Text Adventure Game)
 
 **What it is**: A classic interactive fiction game. You explore the Great Underground Empire, solve puzzles, and collect treasures.
 
@@ -305,7 +258,7 @@ I am not seeking employment in that long-gone field at this time, and as such, w
 
 ---
 
-### 4. Games Collection
+### 3. Games Collection
 
 **What it is**: A collection of various CP/M games (specific titles vary).
 
@@ -344,7 +297,7 @@ I am not seeking employment in that long-gone field at this time, and as such, w
 
 ---
 
-### 5. Development Tools
+### 4. Development Tools
 
 **What it is**: Assemblers, linkers, and editors for software development on CP/M.
 
@@ -401,49 +354,6 @@ I am not seeking employment in that long-gone field at this time, and as such, w
    - Each tool has its own exit command
    - MBASIC: `SYSTEM`
    - ED: `E` (exit and save) or `Q` (quit without saving)
-
----
-
-### 6. Altair Time-Sharing BASIC V1.1
-
-**What it is**: The original Altair BASIC interpreter, historically significant as one of Microsoft's first products.
-
-**How to use**:
-
-1. **Mount the disk**:
-   ```
-   [Press Ctrl+E]
-   sim> ATTACH DSK1 tsbasic.dsk
-   sim> CONT
-   ```
-
-2. **Switch to drive B: and launch**:
-   ```
-   A> B:
-   B> DIR
-   ```
-
-3. **Run BASIC**:
-   ```
-   B> BASIC
-   ```
-   (or whatever the executable is named - check DIR output)
-
-4. **Using BASIC**:
-   - Type programs line by line:
-     ```
-     10 PRINT "HELLO WORLD"
-     20 GOTO 10
-     ```
-   - `LIST` - show your program
-   - `RUN` - execute
-   - `NEW` - clear program
-   - `SAVE "PROGRAM"` - save to disk
-   - `LOAD "PROGRAM"` - load from disk
-   - `BYE` or `SYSTEM` - exit
-
-5. **Exit**:
-   - Type `BYE` or `SYSTEM`
 
 ## Tips and Troubleshooting
 Also written by Claude Code! I personally had no issues, so best of luck!
@@ -505,6 +415,4 @@ Congrats. You scrolled through a whole lot of CS student yapping and Claude Code
 ## Additional Resources
 I lied, here's more random stuff you may find useful.
 - **SIMH Documentation**: https://simh.trailing-edge.com/
-- **CP/M 2.2 Manual**: Search online for "CP/M 2.2 User Guide"
-- **WordStar Command Reference**: Search for "WordStar Quick Reference Card"
-- **Zork Hints**: Use in-game `HELP` command or search online for walkthroughs
+- **Zork**: https://infodoc.plover.net/manuals/zork1.pdf
