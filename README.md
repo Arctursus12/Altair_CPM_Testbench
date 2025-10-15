@@ -31,7 +31,6 @@ This workspace (currently) contains the following disk images:
 |----------|----------|------|
 | `A.dsk` | CP/M 2.2 System Disk (DISK01) | 330KB |
 | `supercalc.dsk` | SuperCalc II Spreadsheet (DISK06) | 330KB |
-| `wordstar.dsk` | WordStar Word Processor (DISK07) | 330KB |
 | `zork.dsk` | Zork I Text Adventure Game (DISK08) | 330KB |
 | `games.dsk` | Collection of misc. CP/M Games (DISK05) | 330KB |
 | `devtools.dsk` | Development Tools: M80, L80, MAC, ASM, ED (DISK13) | 330KB |
@@ -78,7 +77,7 @@ While the simulator is running, you can press **Ctrl+E** to pause execution and 
    This shows all 16 disk units and what's currently attached.
 3. **Attach a disk image**
    ```
-   sim> ATTACH DSK1 wordstar.dsk
+   sim> ATTACH DSK1 supercalc.dsk
    ```
    - `DSK0` = A: drive (system disk - usually leave this alone)
    - `DSK1` = B: drive
@@ -124,7 +123,7 @@ These work from any drive prompt (A>, B>, etc.):
 **Warm boot**: Press **Ctrl+C** at any CP/M prompt to reload the operating system (useful after disk swaps).
 
 ## Quick Start Example Session
-Here's a complete example of starting the simulator and running WordStar:
+Here's a complete example of starting the simulator and running Zork:
 
 ```bash
 $ ./altair8800mac cpm
@@ -135,16 +134,16 @@ Version 2.2mits (07/28/80)
 
 A> [Press Ctrl+E]
 
-sim> ATTACH DSK1 wordstar.dsk
+sim> ATTACH DSK1 zork.dsk
 sim> CONT
 
 A> B:
 B> DIR
-B> WS
+B> ZORK1
 
-[WordStar opens (eventually) - create your document]
+[Zork opens - explore the Great Underground Empire!]
 
-[Press Ctrl+K X to exit WordStar]
+[Type QUIT to exit Zork]
 
 B> A:
 A> [Press Ctrl+E]
@@ -175,7 +174,55 @@ This will show you the executable files on the disk image.
 Note! This below part is written entirely by Claude Code. <br>
 The extent of terminal-based software I use are `btop` and `nano`, and while I have gone through and tried most of these, I will highlight that the ability to use SuperCalc II was a skill that would singlehandedly get you employed. <br>
 I am not seeking employment in that long-gone field at this time, and as such, will not be learning every tiny detail of how to use these.
-### 1. SuperCalc II (Spreadsheet)
+
+### 1. te Text Editor (RECOMMENDED for text editing)
+
+**What it is**: A modern, small text editor (v1.73) designed for CP/M that actually works with modern terminal emulators! Unlike WordStar, te has ANSI terminal support.
+
+**How to use**:
+
+1. **Mount the disk**:
+   ```
+   [Press Ctrl+E]
+   sim> ATTACH DSK1 te.dsk
+   sim> CONT
+   ```
+
+2. **Switch to drive B: and check contents**:
+   ```
+   A> B:
+   B> DIR
+   ```
+   You'll see: `TE_ANSI.COM`, `TE_WS100.COM`, `TE_MUR.COM`, and `TECF.COM`
+
+3. **Run te (use TE_ANSI for macOS Terminal/iTerm2)**:
+   ```
+   B> TE_ANSI
+   ```
+   Or to edit a specific file:
+   ```
+   B> TE_ANSI TODO.TXT
+   ```
+
+4. **Key commands**:
+   - **ESC** - Opens the menu (New, Open, Save, Help, About, eXit)
+   - **Arrow keys** - Move cursor
+   - **Type normally** - It just works!
+   - In the menu, press the uppercase letter to select (N=New, O=Open, S=Save, etc.)
+
+5. **Available versions**:
+   - `TE_ANSI.COM` - For ANSI terminals (macOS Terminal, iTerm2) - USE THIS ONE
+   - `TE_WS100.COM` - VT100 with WordStar-style keys
+   - `TE_MUR.COM` - Alternative VT100/ANSI version
+
+6. **Exit**:
+   - Press ESC, then X for eXit
+
+**Why use te?**: Unlike other CP/M text editors, te actually displays correctly on modern terminals without garbled output!
+
+---
+
+### 2. SuperCalc II (Spreadsheet)
 
 **What it is**: A powerful spreadsheet program, similar to VisiCalc or early Excel.
 
@@ -209,50 +256,6 @@ I am not seeking employment in that long-gone field at this time, and as such, w
 5. **Exit**:
    - Follow on-screen prompts or type `/Q`
    - You'll return to the `B>` prompt
-
----
-
-### 2. WordStar (Word Processor)
-
-**What it is**: The most popular word processor of the CP/M era, used for document creation and editing.
-
-**How to use**:
-
-1. **Mount the disk**:
-   ```
-   [Press Ctrl+E]
-   sim> ATTACH DSK1 wordstar.dsk
-   sim> CONT
-   ```
-
-2. **Switch to drive B: and launch**:
-   ```
-   A> B:
-   B> DIR
-   ```
-   Look for `WS.COM` or `WORDSTAR.COM`
-
-3. **Run WordStar**:
-   ```
-   B> WS
-   ```
-
-4. **WordStar commands** (Ctrl-key combinations):
-   - **Ctrl+K D**: Open a file
-   - **Ctrl+K S**: Save file
-   - **Ctrl+K X**: Save and exit
-   - **Cursor movement**: Ctrl+E/S/D/X (up/down/right/left)
-   - Main menu shows all commands
-
-5. **Creating a new document**:
-   - From the opening menu, choose "N" for new file
-   - Enter a filename (e.g., `LETTER.TXT`)
-   - Type your document
-   - Save with Ctrl+K S, exit with Ctrl+K X
-
-6. **Exit**:
-   - Ctrl+K X (save and exit)
-   - Or Ctrl+K Q (quit without saving)
 
 ---
 
@@ -446,9 +449,9 @@ I am not seeking employment in that long-gone field at this time, and as such, w
 Also written by Claude Code! I personally had no issues, so best of luck!
 ### Swapping Disks Mid-Session
 
-**Example workflow** - switching from WordStar to Zork:
+**Example workflow** - switching from SuperCalc to Zork:
 
-1. Exit WordStar (Ctrl+K X)
+1. Exit SuperCalc (`/Q`)
 2. You're back at `B>` prompt
 3. Press **Ctrl+E**
 4. At `sim>` prompt:
@@ -460,7 +463,7 @@ Also written by Claude Code! I personally had no issues, so best of luck!
 5. Back at `B>`, type `DIR` to verify new disk
 6. If DIR shows old files, press **Ctrl+C** to warm boot
 7. Type `B:` to reinitialize the drive
-8. Run Zork
+8. Run Zork (`ZORK1`)
 
 ### Drive Won't Recognize New Disk
 
